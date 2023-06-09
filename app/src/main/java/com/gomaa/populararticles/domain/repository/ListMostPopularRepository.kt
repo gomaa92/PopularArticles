@@ -5,5 +5,4 @@ import com.gomaa.populararticles.data.model.ArticlesResponse
 
 interface ListMostPopularRepository {
     suspend fun getMostPopularArticles(period: Int): NetworkResponse<ArticlesResponse>
-
 }

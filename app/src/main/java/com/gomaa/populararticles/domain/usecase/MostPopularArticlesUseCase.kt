@@ -2,6 +2,7 @@ package com.gomaa.populararticles.domain.usecase
 
 import com.gomaa.base.data.remote.NetworkResponse
 import com.gomaa.base.domain.usecase.SuspendableUseCase
+import com.gomaa.populararticles.domain.mapper.ArticlesDomainMapper.mapDataArticlesToDomainArticles
 import com.gomaa.populararticles.domain.repository.ListMostPopularRepository
 import com.gomaa.populararticles.presentation.viewModel.MostPopularArticlesContractor.ArticlesResult
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +20,8 @@ class MostPopularArticlesUseCase @Inject constructor(private val repository: Lis
                 if (result.data.articles.isEmpty()) {
                     emit(ArticlesResult.GetArticlesEmpty)
                 } else {
-                    emit(ArticlesResult.GetArticlesSuccess(result.data.articles))
+                    val domainArticles = mapDataArticlesToDomainArticles(result.data.articles)
+                    emit(ArticlesResult.GetArticlesSuccess(domainArticles.sortedByDescending { it.publishedDate }))
                 }
             }
         }

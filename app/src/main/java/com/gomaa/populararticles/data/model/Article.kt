@@ -1,13 +1,14 @@
 package com.gomaa.populararticles.data.model
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Article(
     val id: Long?,
     val media: List<Media>?,
-    val publishedDate: String?,
+    @SerializedName("published_date") val publishedDate: String?,
     val section: String?,
     val source: String?,
     val subsection: String?,
@@ -15,5 +16,6 @@ data class Article(
     val type: String?,
     val updated: String?,
     val uri: String?,
-    val url: String?
-) : Parcelable
+    val url: String?,
+    @SerializedName("byline") val byline: String?,
+    ) : Parcelable

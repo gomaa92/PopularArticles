@@ -12,5 +12,4 @@ class ListMostPopularRepositoryImpl @Inject constructor(
     override suspend fun getMostPopularArticles(period: Int): NetworkResponse<ArticlesResponse> {
         return remoteDataSource.getMostPopularArticles(period)
     }
-
 }
