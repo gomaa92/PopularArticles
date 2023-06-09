@@ -10,10 +10,6 @@ sealed class NetworkResponse<T> {
         val data: T,
     ) : NetworkResponse<T>()
 
-    data class SuccessLocal<T>(
-        val data: T,
-    ) : NetworkResponse<T>()
-
     data class Failure<T>(
         val exception: Exception,
     ) : NetworkResponse<T>()

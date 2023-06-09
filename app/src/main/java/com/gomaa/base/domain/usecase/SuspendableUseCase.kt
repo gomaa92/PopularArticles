@@ -1,5 +1,7 @@
 package com.gomaa.base.domain.usecase
 
-interface SuspendableUseCase<I, O> {
-    fun execute(input: I): O
+import kotlinx.coroutines.flow.Flow
+
+interface SuspendableUseCase<I, R> {
+   suspend fun execute(input: I): Flow<R>
 }
