@@ -1,4 +1,4 @@
-package com.gomaa.populararticles.presentation.ui
+package com.gomaa.populararticles.presentation.ui.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,7 @@ import com.gomaa.populararticles.presentation.viewModel.MostPopularArticlesViewM
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class ListArticlesActivity : ComponentActivity() {
     private val viewModel: MostPopularArticlesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

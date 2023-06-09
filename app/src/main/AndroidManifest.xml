@@ -17,9 +17,8 @@
         android:theme="@style/Theme.PopularArticles"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.ui.MainActivity"
+            android:name=".presentation.ui.activities.ListArticlesActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.PopularArticles">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +30,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".presentation.ui.activities.ArticleDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PopularArticles" />
     </application>
 
 </manifest>

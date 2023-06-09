@@ -1,5 +1,7 @@
 package com.gomaa.populararticles.presentation.ui.components
 
+import android.content.Intent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -12,9 +14,12 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.gomaa.populararticles.domain.entity.ArticleEntity
+import com.gomaa.populararticles.presentation.ui.activities.ArticleDetailsActivity
+import com.gomaa.populararticles.presentation.ui.activities.ArticleDetailsActivity.Companion.ARTICLE_DETAILS
 
 @Composable
 fun ArticlesComponent(articles: List<ArticleEntity>) {
@@ -27,8 +32,15 @@ fun ArticlesComponent(articles: List<ArticleEntity>) {
 
 @Composable
 fun CustomCardView(article: ArticleEntity) {
+    val context = LocalContext.current
     Card(
-        modifier = Modifier.padding(8.dp),
+        modifier = Modifier
+            .padding(8.dp)
+            .clickable {
+                val intent = Intent(context, ArticleDetailsActivity::class.java)
+                intent.putExtra(ARTICLE_DETAILS, article)
+                context.startActivity(intent)
+            },
         elevation = 8.dp,
         shape = RoundedCornerShape(16.dp)
     ) {
