@@ -13,11 +13,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import com.gomaa.populararticles.R
 import com.gomaa.populararticles.domain.entity.ArticleEntity
 
 @Composable
@@ -25,12 +27,12 @@ fun ArticleDetailsComponent(article: ArticleEntity) {
 
     Column(modifier = Modifier.padding(16.dp)) {
         Text(
-            text = "Title: ${article.title}",
+            text = stringResource(id = R.string.title) + " ${article.title}",
             style = MaterialTheme.typography.h6,
         )
         Spacer(modifier = Modifier.height(12.dp))
         Text(
-            text = "Publish Date: ${article.publishedDate}",
+            text = stringResource(id = R.string.publish_date) + " ${article.publishedDate}",
             style = MaterialTheme.typography.subtitle1
         )
         Spacer(modifier = Modifier.height(8.dp))
@@ -44,7 +46,7 @@ fun ArticleDetailsComponent(article: ArticleEntity) {
 fun ClickableUrlText(url: String) {
     val context = LocalContext.current
     val contentColor = LocalContentColor.current
-    val annotatedText = AnnotatedString.Builder("Read more: ").apply {
+    val annotatedText = AnnotatedString.Builder(stringResource(id = R.string.read_more)).apply {
         pushStyle(SpanStyle(textDecoration = TextDecoration.Underline))
         append(url)
         pop()

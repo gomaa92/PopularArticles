@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Popular Articles</string>
+    <string name="list_article_activity_title">Most Popular Articles</string>
+    <string name="article_details_activity_title">Article Details</string>
+    <string name="read_more">Read more: </string>
+    <string name="title">Title: </string>
+    <string name="publish_date">Publish Date:  </string>
+    <string name="empty_state_title">No Articles </string>
+    <string name="empty_state_subtitle">No articles found for this period, please try another one </string>
+    <string name="error_title">Error occurred</string>
+    <string name="error_subtitle">An error occurred please make sure you are connected and try again</string>
+    <string name="retry">Retry</string>
+    <string name="close_app">Exit</string>
 </resources>

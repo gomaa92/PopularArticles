@@ -7,6 +7,8 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.gomaa.populararticles.R
 import com.gomaa.populararticles.presentation.ui.screens.MostPopularArticlesScreen
 import com.gomaa.populararticles.presentation.ui.theme.PopularArticlesTheme
 import com.gomaa.populararticles.presentation.viewModel.MostPopularArticlesViewModel
@@ -27,7 +29,7 @@ class ListArticlesActivity : ComponentActivity() {
                     Scaffold(
                         topBar = {
                             TopAppBar(
-                                title = { Text("Most Popular Articles") },
+                                title = { Text(stringResource(id = R.string.list_article_activity_title)) },
                                 backgroundColor = MaterialTheme.colors.primary
                             )
                         },

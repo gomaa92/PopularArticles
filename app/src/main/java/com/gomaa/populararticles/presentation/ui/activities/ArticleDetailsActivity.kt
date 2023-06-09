@@ -8,6 +8,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.gomaa.populararticles.R
 import com.gomaa.populararticles.domain.entity.ArticleEntity
 import com.gomaa.populararticles.presentation.ui.components.ArticleDetailsComponent
 import com.gomaa.populararticles.presentation.ui.theme.PopularArticlesTheme
@@ -32,7 +34,7 @@ class ArticleDetailsActivity : ComponentActivity() {
                     Scaffold(
                         topBar = {
                             TopAppBar(
-                                title = { Text("Article Details") },
+                                title = { Text(stringResource(id = R.string.article_details_activity_title)) },
                                 navigationIcon =
                                 {
                                     IconButton(onClick = { finish() }) {
