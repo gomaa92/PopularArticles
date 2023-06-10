@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class MostPopularArticlesUseCase @Inject constructor(private val repository: ListMostPopularRepository) :
+open class MostPopularArticlesUseCase @Inject constructor(private val repository: ListMostPopularRepository) :
     SuspendableUseCase<Int, ArticlesResult> {
     override suspend fun execute(input: Int): Flow<ArticlesResult> = flow {
         when (val result = repository.getMostPopularArticles(input)) {

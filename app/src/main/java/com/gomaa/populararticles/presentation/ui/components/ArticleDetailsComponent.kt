@@ -46,14 +46,15 @@ fun ArticleDetailsComponent(article: ArticleEntity) {
 fun ClickableUrlText(url: String) {
     val context = LocalContext.current
     val contentColor = LocalContentColor.current
-    val annotatedText = AnnotatedString.Builder(stringResource(id = R.string.read_more)).apply {
-        pushStyle(SpanStyle(textDecoration = TextDecoration.Underline))
-        append(url)
-        pop()
-        addStringAnnotation(
-            tag = "URL", annotation = url, start = length - url.length, end = length
-        )
-    }.toAnnotatedString()
+    val annotatedText =
+        AnnotatedString.Builder(stringResource(id = R.string.read_more) + " ").apply {
+            pushStyle(SpanStyle(textDecoration = TextDecoration.Underline))
+            append(url)
+            pop()
+            addStringAnnotation(
+                tag = "URL", annotation = url, start = length - url.length, end = length
+            )
+        }.toAnnotatedString()
 
     ClickableText(text = annotatedText, onClick = { offset ->
         annotatedText.getStringAnnotations(tag = "URL", start = offset, end = offset).firstOrNull()

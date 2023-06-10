@@ -5,7 +5,7 @@ import com.gomaa.populararticles.domain.entity.ArticleEntity
 
 object ArticlesDomainMapper {
 
-    private fun mapDataArticleToDomainArticle(article: Article): ArticleEntity {
+    fun mapDataArticleToDomainArticle(article: Article): ArticleEntity {
         return ArticleEntity(
             title = article.title.orEmpty(),
             publishedDate = article.publishedDate.orEmpty(),

@@ -71,4 +71,7 @@ dependencies {
     kapt kaptDI.values()
     implementation gsonParser.values()
     implementation retrofitNetworking.values()
+    implementation androidTestImpUnitTest.values()
+    implementation testImpUnitTest.values()
+    implementation mock.values()
 }

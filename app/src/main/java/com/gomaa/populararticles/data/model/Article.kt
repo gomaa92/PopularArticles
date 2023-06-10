@@ -18,4 +18,4 @@ data class Article(
     val uri: String?,
     val url: String?,
     @SerializedName("byline") val byline: String?,
-    ) : Parcelable
+) : Parcelable
