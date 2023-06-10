@@ -39,7 +39,8 @@ class ListArticlesActivity : ComponentActivity() {
                                 optionsMenuIcon = ImageVector.vectorResource(id = R.drawable.ic_expand_more),
                                 menuItems = listOf(1, 7, 30),
                                 onMenuItemClick = { period ->
-                                    viewModel.getPopularArticles(period)
+                                    viewModel.period = period
+                                    viewModel.getPopularArticles()
                                 }
                             )
                         },

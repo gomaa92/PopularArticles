@@ -28,12 +28,13 @@ class MostPopularArticlesViewModel @Inject constructor(private val useCase: Most
 
     private var viewModelScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
 
+    var period = 7
 
     private val _popularArticlesStateFlow =
         MutableStateFlow<ArticlesViewState>(ArticlesViewState.Loading())
     val popularArticlesStateFlow: StateFlow<ArticlesViewState> = _popularArticlesStateFlow
 
-    fun getPopularArticles(period: Int) {
+    fun getPopularArticles() {
         viewModelScope.launch {
             useCase.execute(period)
                 .onStart {

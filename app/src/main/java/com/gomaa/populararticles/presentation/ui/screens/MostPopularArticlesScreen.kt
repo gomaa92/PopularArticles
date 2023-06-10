@@ -15,21 +15,24 @@ import com.gomaa.populararticles.presentation.viewModel.MostPopularArticlesContr
 import com.gomaa.populararticles.presentation.viewModel.MostPopularArticlesViewModel
 
 @Composable
-fun MostPopularArticlesScreen(viewModel: MostPopularArticlesViewModel) {
+fun MostPopularArticlesScreen(
+    viewModel: MostPopularArticlesViewModel,
+    modifier: Modifier = Modifier
+) {
 
     LaunchedEffect(Unit) {
-        viewModel.getPopularArticles(7)
+        viewModel.getPopularArticles()
     }
 
     val articlesViewState by viewModel.popularArticlesStateFlow.collectAsState()
 
-    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+    BoxWithConstraints(modifier = modifier.fillMaxSize()) {
         when (articlesViewState) {
             MostPopularArticlesContractor.ArticlesViewState.GetArticlesEmpty -> {
                 EmptyComponent()
             }
             MostPopularArticlesContractor.ArticlesViewState.GetArticlesFailed -> {
-                FailureComponent { viewModel.getPopularArticles(7) }
+                FailureComponent { viewModel.getPopularArticles() }
             }
             is MostPopularArticlesContractor.ArticlesViewState.GetArticlesSuccess -> {
                 ArticlesComponent((articlesViewState as MostPopularArticlesContractor.ArticlesViewState.GetArticlesSuccess).articles)

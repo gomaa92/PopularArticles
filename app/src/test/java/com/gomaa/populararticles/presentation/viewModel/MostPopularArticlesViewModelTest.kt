@@ -41,7 +41,7 @@ class MostPopularArticlesViewModelTest {
             }).`when`(useCase).execute(period)
 
             // Act
-            viewModel.getPopularArticles(period)
+            viewModel.getPopularArticles()
 
             // Assert
             assert(viewModel.popularArticlesStateFlow.value == expectedState)
@@ -63,7 +63,7 @@ class MostPopularArticlesViewModelTest {
             }).`when`(useCase).execute(period)
 
             // Act
-            viewModel.getPopularArticles(period)
+            viewModel.getPopularArticles()
 
             // Assert
             assert(viewModel.popularArticlesStateFlow.value == expectedState)
@@ -85,7 +85,7 @@ class MostPopularArticlesViewModelTest {
             }).`when`(useCase).execute(period)
 
             // Act
-            viewModel.getPopularArticles(period)
+            viewModel.getPopularArticles()
 
             // Assert
             assert(viewModel.popularArticlesStateFlow.value == expectedState)
