@@ -18,6 +18,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gomaa.populararticles.R
+import com.gomaa.populararticles.presentation.ui.components.EmptyComponentConstants.empty_state_image
+import com.gomaa.populararticles.presentation.ui.components.EmptyComponentConstants.subTitle
+import com.gomaa.populararticles.presentation.ui.components.EmptyComponentConstants.title
 
 @Composable
 fun EmptyComponent() {
@@ -28,7 +31,7 @@ fun EmptyComponent() {
     ) {
         Image(
             painter = painterResource(id = R.drawable.empty),
-            contentDescription = "Empty state image",
+            contentDescription = empty_state_image,
             modifier = Modifier.padding(bottom = 24.dp)
         )
 
@@ -39,7 +42,9 @@ fun EmptyComponent() {
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
             ),
-            modifier = Modifier.padding(bottom = 8.dp).testTag("TITLE")
+            modifier = Modifier
+                .padding(bottom = 8.dp)
+                .testTag(title)
         )
 
         Text(
@@ -49,7 +54,13 @@ fun EmptyComponent() {
                 fontWeight = FontWeight.Normal,
                 color = Color.Gray
             ),
-            modifier = Modifier.testTag("subTitle")
+            modifier = Modifier.testTag(subTitle)
         )
     }
+}
+
+object EmptyComponentConstants {
+    const val empty_state_image = "Empty state image"
+    const val title = "title"
+    const val subTitle = "subTitle"
 }

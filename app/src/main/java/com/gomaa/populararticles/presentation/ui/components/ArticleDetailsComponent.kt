@@ -22,6 +22,10 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.gomaa.populararticles.R
 import com.gomaa.populararticles.domain.entity.ArticleEntity
+import com.gomaa.populararticles.presentation.ui.components.ArticleDetailsComponentConstants.article_details_byline
+import com.gomaa.populararticles.presentation.ui.components.ArticleDetailsComponentConstants.article_details_date
+import com.gomaa.populararticles.presentation.ui.components.ArticleDetailsComponentConstants.article_details_title
+import com.gomaa.populararticles.presentation.ui.components.ArticleDetailsComponentConstants.article_details_url
 
 @Composable
 fun ArticleDetailsComponent(article: ArticleEntity) {
@@ -30,22 +34,22 @@ fun ArticleDetailsComponent(article: ArticleEntity) {
         Text(
             text = stringResource(id = R.string.title) + " ${article.title}",
             style = MaterialTheme.typography.h6,
-            modifier = Modifier.testTag("article_details_title")
+            modifier = Modifier.testTag(article_details_title)
         )
         Spacer(modifier = Modifier.height(12.dp))
         Text(
             text = stringResource(id = R.string.publish_date) + " ${article.publishedDate}",
             style = MaterialTheme.typography.subtitle1,
-            modifier = Modifier.testTag("article_details_date")
+            modifier = Modifier.testTag(article_details_date)
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = article.byLine, style = MaterialTheme.typography.body1,
-            modifier = Modifier.testTag("article_details_byline")
+            modifier = Modifier.testTag(article_details_byline)
         )
         Spacer(modifier = Modifier.height(8.dp))
         ClickableUrlText(
-            article.url, modifier = Modifier.testTag("article_details_url")
+            article.url, modifier = Modifier.testTag(article_details_url)
         )
     }
 }
@@ -71,4 +75,11 @@ fun ClickableUrlText(url: String, modifier: Modifier) {
                 context.startActivity(intent)
             }
     }, style = TextStyle(color = contentColor), modifier = modifier)
+}
+
+object ArticleDetailsComponentConstants {
+    const val article_details_title = "article_details_title"
+    const val article_details_date = "article_details_date"
+    const val article_details_byline = "article_details_byline"
+    const val article_details_url = "article_details_url"
 }

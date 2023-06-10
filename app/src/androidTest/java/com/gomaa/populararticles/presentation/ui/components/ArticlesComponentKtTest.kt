@@ -4,6 +4,10 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import com.gomaa.populararticles.domain.entity.ArticleEntity
+import com.gomaa.populararticles.presentation.ui.components.ArticleItemComponentConstant.item_byline
+import com.gomaa.populararticles.presentation.ui.components.ArticleItemComponentConstant.item_card
+import com.gomaa.populararticles.presentation.ui.components.ArticleItemComponentConstant.item_date
+import com.gomaa.populararticles.presentation.ui.components.ArticleItemComponentConstant.item_title
 import org.junit.Rule
 import org.junit.Test
 
@@ -25,9 +29,9 @@ class ArticlesComponentKtTest {
             )
         }
 
-        composeTestRule.onNodeWithTag("item_title", useUnmergedTree = true).assertIsDisplayed()
-        composeTestRule.onNodeWithTag("item_card", useUnmergedTree = true).assertIsDisplayed()
-        composeTestRule.onNodeWithTag("item_date", useUnmergedTree = true).assertIsDisplayed()
-        composeTestRule.onNodeWithTag("item_byline", useUnmergedTree = true).assertIsDisplayed()
+        composeTestRule.onNodeWithTag(item_title, useUnmergedTree = true).assertIsDisplayed()
+        composeTestRule.onNodeWithTag(item_card, useUnmergedTree = true).assertIsDisplayed()
+        composeTestRule.onNodeWithTag(item_date, useUnmergedTree = true).assertIsDisplayed()
+        composeTestRule.onNodeWithTag(item_byline, useUnmergedTree = true).assertIsDisplayed()
     }
 }

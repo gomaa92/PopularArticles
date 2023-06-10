@@ -6,6 +6,9 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import com.gomaa.populararticles.R
+import com.gomaa.populararticles.presentation.ui.components.CustomAppBarWithOptionsMenuConstants.DropdownMenu
+import com.gomaa.populararticles.presentation.ui.components.CustomAppBarWithOptionsMenuConstants.IconButton
+import com.gomaa.populararticles.presentation.ui.components.CustomAppBarWithOptionsMenuConstants.appBarTitle
 import org.junit.Rule
 import org.junit.Test
 
@@ -24,8 +27,8 @@ class CustomAppBarWithOptionsMenuKtTest {
             ) { }
         }
 
-        composeTestRule.onNodeWithTag("appBarTitle").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("IconButton").assertIsDisplayed()
-        composeTestRule.onNodeWithTag("DropdownMenu").assertDoesNotExist()
+        composeTestRule.onNodeWithTag(appBarTitle).assertIsDisplayed()
+        composeTestRule.onNodeWithTag(IconButton).assertIsDisplayed()
+        composeTestRule.onNodeWithTag(DropdownMenu).assertDoesNotExist()
     }
 }

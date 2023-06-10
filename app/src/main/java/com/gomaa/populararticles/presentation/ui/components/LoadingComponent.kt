@@ -7,6 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import com.gomaa.populararticles.presentation.ui.components.LoadingComponentConstants.loadingBox
+import com.gomaa.populararticles.presentation.ui.components.LoadingComponentConstants.loadingIndicator
 
 @Composable
 fun LoadingComponent(showLoading: Boolean) {
@@ -15,11 +17,15 @@ fun LoadingComponent(showLoading: Boolean) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .testTag("loadingBox"),
+                .testTag(loadingBox),
             contentAlignment = Alignment.Center
         ) {
-            CircularProgressIndicator(modifier = Modifier.testTag("loadingIndicator"))
+            CircularProgressIndicator(modifier = Modifier.testTag(loadingIndicator))
         }
     }
+}
 
+object LoadingComponentConstants {
+    const val loadingBox = "loadingBox"
+    const val loadingIndicator = "loadingIndicator"
 }

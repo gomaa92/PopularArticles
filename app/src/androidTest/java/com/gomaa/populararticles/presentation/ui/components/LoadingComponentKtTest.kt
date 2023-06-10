@@ -3,6 +3,8 @@ package com.gomaa.populararticles.presentation.ui.components
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
+import com.gomaa.populararticles.presentation.ui.components.LoadingComponentConstants.loadingBox
+import com.gomaa.populararticles.presentation.ui.components.LoadingComponentConstants.loadingIndicator
 import org.junit.Rule
 import org.junit.Test
 
@@ -17,9 +19,9 @@ class LoadingComponentKtTest {
             LoadingComponent(true)
         }
 
-        composeTestRule.onNodeWithTag("loadingBox").assertIsDisplayed()
+        composeTestRule.onNodeWithTag(loadingBox).assertIsDisplayed()
 
-        composeTestRule.onNodeWithTag("loadingIndicator").assertIsDisplayed()
+        composeTestRule.onNodeWithTag(loadingIndicator).assertIsDisplayed()
     }
 
     @Test
@@ -29,8 +31,8 @@ class LoadingComponentKtTest {
             LoadingComponent(false)
         }
 
-        composeTestRule.onNodeWithTag("loadingBox").assertDoesNotExist()
+        composeTestRule.onNodeWithTag(loadingBox).assertDoesNotExist()
 
-        composeTestRule.onNodeWithTag("loadingIndicator").assertDoesNotExist()
+        composeTestRule.onNodeWithTag(loadingIndicator).assertDoesNotExist()
     }
 }

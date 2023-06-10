@@ -44,3 +44,9 @@ fun CustomAppBarWithOptionsMenu(
         }
     )
 }
+
+object CustomAppBarWithOptionsMenuConstants {
+    const val appBarTitle = "appBarTitle"
+    const val IconButton = "IconButton"
+    const val DropdownMenu = "DropdownMenu"
+}

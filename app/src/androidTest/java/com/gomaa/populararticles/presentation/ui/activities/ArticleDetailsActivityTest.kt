@@ -4,6 +4,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.gomaa.populararticles.domain.entity.ArticleEntity
+import com.gomaa.populararticles.presentation.ui.activities.ArticleDetailsActivity.Companion.IconButton_bak
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -37,6 +38,6 @@ class ArticleDetailsActivityTest {
     fun articleDetailsActivity_displaysArticleDetails() {
 
         // Check if the back button is displayed
-        composeTestRule.onNodeWithContentDescription("Back").assertExists()
+        composeTestRule.onNodeWithContentDescription(IconButton_bak).assertExists()
     }
 }

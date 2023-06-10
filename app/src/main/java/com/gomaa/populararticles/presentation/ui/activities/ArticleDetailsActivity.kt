@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ArticleDetailsActivity : ComponentActivity() {
     companion object {
         const val ARTICLE_DETAILS = "extra_article"
+        const val IconButton_bak = "Back"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,7 @@ class ArticleDetailsActivity : ComponentActivity() {
                                     IconButton(onClick = { finish() }) {
                                         Icon(
                                             imageVector = Icons.Filled.ArrowBack,
-                                            contentDescription = "Back"
+                                            contentDescription = IconButton_bak
                                         )
                                     }
                                 },
