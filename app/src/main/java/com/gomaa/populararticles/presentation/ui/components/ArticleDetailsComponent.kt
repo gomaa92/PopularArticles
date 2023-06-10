@@ -13,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -29,21 +30,28 @@ fun ArticleDetailsComponent(article: ArticleEntity) {
         Text(
             text = stringResource(id = R.string.title) + " ${article.title}",
             style = MaterialTheme.typography.h6,
+            modifier = Modifier.testTag("article_details_title")
         )
         Spacer(modifier = Modifier.height(12.dp))
         Text(
             text = stringResource(id = R.string.publish_date) + " ${article.publishedDate}",
-            style = MaterialTheme.typography.subtitle1
+            style = MaterialTheme.typography.subtitle1,
+            modifier = Modifier.testTag("article_details_date")
         )
         Spacer(modifier = Modifier.height(8.dp))
-        Text(text = article.byLine, style = MaterialTheme.typography.body1)
+        Text(
+            text = article.byLine, style = MaterialTheme.typography.body1,
+            modifier = Modifier.testTag("article_details_byline")
+        )
         Spacer(modifier = Modifier.height(8.dp))
-        ClickableUrlText(article.url)
+        ClickableUrlText(
+            article.url, modifier = Modifier.testTag("article_details_url")
+        )
     }
 }
 
 @Composable
-fun ClickableUrlText(url: String) {
+fun ClickableUrlText(url: String, modifier: Modifier) {
     val context = LocalContext.current
     val contentColor = LocalContentColor.current
     val annotatedText =
@@ -62,5 +70,5 @@ fun ClickableUrlText(url: String) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(annotation.item))
                 context.startActivity(intent)
             }
-    }, style = TextStyle(color = contentColor))
+    }, style = TextStyle(color = contentColor), modifier = modifier)
 }

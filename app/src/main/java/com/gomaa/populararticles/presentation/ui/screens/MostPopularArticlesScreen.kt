@@ -29,7 +29,7 @@ fun MostPopularArticlesScreen(viewModel: MostPopularArticlesViewModel) {
                 EmptyComponent()
             }
             MostPopularArticlesContractor.ArticlesViewState.GetArticlesFailed -> {
-                FailureComponent(viewModel = viewModel)
+                FailureComponent { viewModel.getPopularArticles(7) }
             }
             is MostPopularArticlesContractor.ArticlesViewState.GetArticlesSuccess -> {
                 ArticlesComponent((articlesViewState as MostPopularArticlesContractor.ArticlesViewState.GetArticlesSuccess).articles)

@@ -12,6 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -24,13 +25,13 @@ import com.gomaa.populararticles.presentation.ui.activities.ArticleDetailsActivi
 fun ArticlesComponent(articles: List<ArticleEntity>) {
     LazyColumn {
         items(articles) { item ->
-            CustomCardView(item)
+            ArticleItem(item)
         }
     }
 }
 
 @Composable
-fun CustomCardView(article: ArticleEntity) {
+fun ArticleItem(article: ArticleEntity) {
     val context = LocalContext.current
     Card(
         modifier = Modifier
@@ -40,7 +41,8 @@ fun CustomCardView(article: ArticleEntity) {
                 val intent = Intent(context, ArticleDetailsActivity::class.java)
                 intent.putExtra(ARTICLE_DETAILS, article)
                 context.startActivity(intent)
-            },
+            }
+            .testTag("item_card"),
         elevation = 8.dp,
         shape = RoundedCornerShape(16.dp)
     ) {
@@ -49,14 +51,20 @@ fun CustomCardView(article: ArticleEntity) {
                 text = article.title,
                 style = MaterialTheme.typography.h6,
                 textAlign = TextAlign.Center,
+                modifier = Modifier.testTag("item_title")
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = stringResource(id = R.string.publish_date) + " ${article.publishedDate}",
-                style = MaterialTheme.typography.subtitle1
+                style = MaterialTheme.typography.subtitle1,
+                modifier = Modifier.testTag("item_date")
             )
             Spacer(modifier = Modifier.height(2.dp))
-            Text(text = article.byLine, style = MaterialTheme.typography.body1)
+            Text(
+                text = article.byLine,
+                style = MaterialTheme.typography.body1,
+                modifier = Modifier.testTag("item_byline")
+            )
         }
     }
 }

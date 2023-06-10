@@ -75,8 +75,8 @@ ext {
             "hilt": "com.google.dagger:hilt-compiler:$hiltVersion",
     ]
     mock = [
-            "mockitoKotlin" : "org.mockito.kotlin:mockito-kotlin:4.0.0",
-            "mock"          : "org.mockito:mockito-core:$mockitoVersion",
-            "coroutines"    : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesAndroidVersion",
+            "mockitoKotlin": "org.mockito.kotlin:mockito-kotlin:4.0.0",
+            "mock"         : "org.mockito:mockito-core:$mockitoVersion",
+            "coroutines"   : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesAndroidVersion",
     ]
 }
